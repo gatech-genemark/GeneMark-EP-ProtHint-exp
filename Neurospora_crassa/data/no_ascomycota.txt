@@ -1,0 +1,184 @@
+Agaricus bisporus var. burnettii JB137-S8
+Amanita muscaria Koide BX008
+Amanita thiersii Skay4041
+Armillaria gallica
+Armillaria ostoyae
+Armillaria solidipes
+Coprinopsis cinerea okayama7#130
+Cylindrobasidium torrendii FP15055 ss-10
+Fistulina hepatica ATCC 64428
+Galerina marginata CBS 339.88
+Gymnopilus dilepis
+Gymnopus luxurians FD-317 M1
+Hebeloma cylindrosporum h7
+Hypholoma sublateritium FD-334 SS-4
+Hypsizygus marmoreus
+Laccaria amethystina LaAM-08-1
+Laccaria bicolor S238N-H82
+Lentinula edodes
+Leucoagaricus sp. SymC.cos
+Moniliophthora roreri MCA 2997
+Panaeolus cyanescens
+Pleurotus ostreatus PC15
+Psilocybe cyanescens
+Schizophyllum commune H4-8
+Termitomyces sp. J132
+Dichomitus squalens LYAD-421 SS1
+Ganoderma sinense ZZ0214-1
+Trametes cinnabarina
+Trametes coccinea BRFM310
+Trametes pubescens
+Trametes versicolor FP-101664 SS1
+Daedalea quercina L-15889
+Fibroporia radiculosa
+Fomitopsis pinicola FP-58527 SS1
+Gelatoporia subvermispora B
+Grifola frondosa
+Laetiporus sulphureus 93-53
+Obba rivulosa
+Phanerochaete carnosa HHB-10118-sp
+Phlebiopsis gigantea 11061_1 CR5-6
+Postia placenta MAD-698-R-SB12
+Wolfiporia cocos MD-104 SS10
+Coniophora puteana RWD-64-598 SS2
+Hydnomerulius pinastri MD-312
+Paxillus involutus ATCC 200175
+Paxillus rubicundulus Ve08.2h10
+Pisolithus microcarpus 441
+Pisolithus tinctorius Marx 270
+Rhizopogon vesiculosus
+Rhizopogon vinicolor AM-OR11-026
+Scleroderma citrinum Foug A
+Serpula lacrymans var. lacrymans S7.3
+Suillus luteus UH-Slu-Lm8-n1
+Auricularia subglabra TFB-10046 SS5
+Botryobasidium botryosum FD-172 SS1
+Exidia glandulosa HHB12029
+Fibularhizoctonia sp. CBS 109695
+Fomitiporia mediterranea MF3/22
+Gloeophyllum trabeum ATCC 11539
+Heterobasidion irregulare TC 32-1
+Jaapia argillacea MUCL 33604
+Neolentinus lepideus HHB14362 ss-1
+Peniophora sp. CONT
+Phellinus noxius
+Piloderma croceum F 1598
+Plicaturopsis crispa FD-325 SS-3
+Punctularia strigosozonata HHB-11173 SS5
+Rhizoctonia solani
+Rhizoctonia solani 123E
+Sanghuangporus baumii
+Schizopora paradoxa
+Serendipita indica DSM 11827
+Serendipita vermifera MAFF 305830
+Sistotremastrum niveocremeum HHB9708
+Sphaerobolus stellatus SS14
+Stereum hirsutum FP-91666 SS1
+Tulasnella calospora MUT 4182
+Cryptococcus amylolentus CBS 6273
+Cryptococcus depauperatus CBS 7841
+Cryptococcus gattii CA1280
+Cryptococcus gattii NT-10
+Cryptococcus gattii VGII CBS 10090
+Cryptococcus neoformans var. grubii
+Cryptococcus neoformans var. neoformans JEC21
+Kwoniella bestiolae CBS 10118
+Kwoniella dejecticola CBS 10117
+Kwoniella heveanensis CBS 569
+Kwoniella mangroviensis CBS 8886
+Kwoniella pini CBS 10737
+Cutaneotrichosporon oleaginosum
+Kockovaella imperatae
+Naematelia encephala
+Tremella mesenterica DSM 1558
+Trichosporon asahii var. asahii CBS 8904
+Tsuchiyaea wingfieldii CBS 7118
+Rhodotorula graminis WP1
+Rhodotorula sp. JG-1b
+Rhodotorula taiwanensis
+Rhodotorula toruloides
+Rhodotorula toruloides NP11
+Sporidiobolus salmonicolor
+Leucosporidium creatinivorum
+Microbotryum intermedium
+Microbotryum lychnidis-dioicae p1A1 Lamole
+Anthracocystis flocculosa PF-1
+Kalmanozyma brasiliensis GHG001
+Moesziomyces antarcticus
+Moesziomyces antarcticus T-34
+Pseudozyma hubeiensis SY62
+Sporisorium reilianum SRZ2
+Sporisorium scitamineum
+Ustilago hordei
+Ustilago maydis 521
+Melampsora larici-populina 98AG31
+Puccinia coronata var. avenae f. sp. avenae
+Puccinia graminis f. sp. tritici CRL 75-36-700-3
+Puccinia sorghi
+Puccinia striiformis f. sp. tritici PST-78
+Puccinia triticina 1-1 BBBD Race 1
+Calocera cornea HHB12733
+Calocera viscosa TUFC12733
+Ceraceosorus bombacis
+Dacryopinax primogenitus
+Malassezia globosa CBS 7966
+Malassezia pachydermatis
+Malassezia sp. JP-2017
+Malassezia sympodialis ATCC 42132
+Mixia osmundae IAM 14324
+Tilletia caries
+Tilletiaria anomala UBC 951
+Tilletia walkeri
+Wallemia ichthyophaga EXF-994
+Wallemia mellicola CBS 633.66
+Absidia glauca
+Absidia repens
+Choanephora cucurbitarum
+Hesseltinella vesiculosa
+Lichtheimia corymbifera JMRC:FSU:9682
+Lichtheimia ramosa
+Mucor ambiguus
+Mucor circinelloides f. circinelloides 1006PhL
+Mucor circinelloides f. lusitanicus CBS 277.49
+Parasitella parasitica
+Phycomyces blakesleeanus NRRL 1555(-)
+Rhizopus delemar RA 99-880
+Rhizopus microsporus
+Rhizopus microsporus ATCC 52813
+Syncephalastrum racemosum
+Lobosporangium transversale
+Mortierella elongata AG-77
+Mortierella verticillata NRRL 6337
+Rhizophagus irregularis
+Rhizophagus irregularis
+Rhizophagus irregularis DAOM 181602=DAOM 197198
+Edhazardia aedis USNM 41457
+Encephalitozoon cuniculi GB-M1
+Encephalitozoon hellem ATCC 50504
+Encephalitozoon intestinalis ATCC 50506
+Encephalitozoon romaleae SJ-2008
+Nematocida displodere
+Nematocida parisii ERTm1
+Nematocida sp. 1 ERTm6
+Nematocida sp. ERTm5
+Nosema ceranae
+Ordospora colligata OC4
+Spraguea lophii 42_110
+Vavraia culicis subsp. floridensis
+Anaeromyces robustus
+Batrachochytrium dendrobatidis JAM81
+Batrachochytrium salamandrivorans
+Gonapodya prolifera JEL478
+Neocallimastix californiae
+Piromyces finnis
+Rhizoclosmatium globosum
+Spizellomyces punctatus DAOM BR117
+Allomyces macrogynus ATCC 38327
+Basidiobolus meristosporus CBS 931.73
+Catenaria anguillulae PL171
+Coemansia reversa NRRL 1564
+Conidiobolus coronatus NRRL 28638
+fungal sp. No.11243
+fungal sp. No.14919
+Linderina pennispora
+Rozella allomycis CSF55
