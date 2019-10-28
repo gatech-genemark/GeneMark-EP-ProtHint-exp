@@ -30,6 +30,18 @@ Run GeneMark-EP/EP+ for all levels
 bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
 ```
 
+### Visualize intron scores
+
+Visualize scores of TP and FP introns as a scatter plot. Generate Sn-Sp curves for
+filtering introns with IBA score, IMC scores and a combination of the two. Results are
+saved in `genus_excluded/graphs` folder.
+
+```bash
+cd genus_excluded/graphs
+./generateFigures.sh
+cd ../..
+```
+
 ### Experiments with different intron thresholds
 
 Run prediction step of GeneMark-EP+ with introns filtered by different IBA thresholds
