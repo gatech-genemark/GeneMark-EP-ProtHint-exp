@@ -1,0 +1,4 @@
+genus_excluded
+mode	ES	EP	EP+_introns	ES+_start_stops	EP+
+merged	3398	2564	2465	1688	1701
+split	1425	1477	1017	1674	1163

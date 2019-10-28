@@ -87,6 +87,13 @@ grep -P "start_codon|stop_codon" ../../evidence.gff > evidence.gff
 cd ../../..
 ```
 
+Create a table with numbers of merged and split genes in ES, EP and EP+ with different
+hints sets.
+
+```bash
+../bin/create_merging_splitting_table.sh family_excluded 10000 > accuracy_tables/merging_splitting.tsv
+```
+
 ### Analysis of introns in conserved domains
 
 The analysis of how many mapped ProtHint introns are located within regions coding for conserved protein domains

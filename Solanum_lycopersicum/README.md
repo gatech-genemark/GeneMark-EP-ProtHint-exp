@@ -96,3 +96,10 @@ grep -P "start_codon|stop_codon" ../../evidence.gff > evidence.gff
     --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 1000 --EP ../../prothint.gff --evidence evidence.gff > log
 cd ../../..
 ```
+
+Create a table with numbers of merged and split genes in ES, EP and EP+ with different
+hints sets.
+
+```bash
+../bin/create_merging_splitting_table.sh genus_excluded 10000 > accuracy_tables/merging_splitting.tsv
+```
