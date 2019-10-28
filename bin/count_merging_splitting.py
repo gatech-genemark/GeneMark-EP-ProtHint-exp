@@ -157,11 +157,16 @@ def splitIntrons(splitAnnot, annot, intronLength):
     the long introns
     """
     longIntrons = tempfile.NamedTemporaryFile(dir=".")
+    found = False
     for row in csv.reader(open(annot), delimiter='\t'):
         if row[2] == "intron" or row[2] == "Intron":
             if int(row[4]) - int(row[3]) + 1 > intronLength:
                 longIntrons.write("\t".join([row[0], row[3], row[4], ".", ".", row[6]]) + "\n")
+                found = True
     longIntrons.flush()
+
+    if not found:
+       return
 
     tempOut = tempfile.NamedTemporaryFile(dir=".")
     subprocess.call("bedtools subtract -s -a " + splitAnnot.name + " -b " +
