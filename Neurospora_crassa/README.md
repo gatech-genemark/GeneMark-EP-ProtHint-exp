@@ -22,6 +22,12 @@ ls data | grep "\.fa$" | sed "s/\.fa//" | xargs -I{} bash -c '../bin/ProtHint/bi
     --maxProteinsPerSeed 25 2> logs/{}_log'
 ```
 
+Generate start filtering table
+
+```bash
+../bin/create_start_filtering_table.sh genus_excluded > accuracy_tables/start_filtering.tsv
+```
+
 ### GeneMark-EP/EP+
 
 Run GeneMark-EP/EP+ for all levels

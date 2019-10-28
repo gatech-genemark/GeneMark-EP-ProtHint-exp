@@ -22,6 +22,12 @@ ls data | grep "\.fa$" | sed "s/\.fa//" | xargs -I{} bash -c '../bin/ProtHint/bi
     --maxProteinsPerSeed 25 2> logs/{}_log'
 ```
 
+Generate start filtering table
+
+```bash
+../bin/create_start_filtering_table.sh family_excluded > accuracy_tables/start_filtering.tsv
+```
+
 ### GeneMark-EP/EP+
 
 Run GeneMark-EP/EP+ for all levels
@@ -73,3 +79,8 @@ grep -P "start_codon|stop_codon" ../../evidence.gff > evidence.gff
     --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 1000 --EP ../../prothint.gff --evidence evidence.gff > log
 cd ../../..
 ```
+
+### Analysis of introns in conserved domains
+
+The analysis of how many mapped ProtHint introns are located within regions coding for conserved protein domains
+is documented in the `domains` folder.
