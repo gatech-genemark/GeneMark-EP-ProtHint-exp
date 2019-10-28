@@ -22,6 +22,12 @@ ls data | grep "\.fa$" | sed "s/\.fa//" | xargs -I{} bash -c '../bin/ProtHint/bi
     --maxProteinsPerSeed 25 2> logs/{}_log'
 ```
 
+Make ProtHint accuracy table
+
+```bash
+../bin/create_prothint_accuracy_table.sh > accuracy_tables/prothint_accuracy.tsv
+```
+
 Generate start filtering table
 
 ```bash
