@@ -32,7 +32,8 @@ def extractFeature(text, feature):
 def loadAnnotation(annotFile):
     annot = set()
     for row in csv.reader(open(annotFile), delimiter='\t'):
-        annot.add(getSignature(row))
+        if (row[2].lower() == "intron"):
+            annot.add(getSignature(row))
     return annot
 
 
@@ -45,10 +46,17 @@ def plotScores(annot, inputFile, outputFile, args):
     maxY = 0
 
     for row in csv.reader(open(inputFile), delimiter='\t'):
+        if (row[2].lower() != "intron"):
+            continue
+
         signature = getSignature(row)
 
         x = float(extractFeature(row[8], "al_score"))
         y = float(row[5])
+
+        if args.ylim != -1:
+            if y > args.ylim:
+                continue
 
         if x > maxX:
             maxX = x
@@ -64,41 +72,43 @@ def plotScores(annot, inputFile, outputFile, args):
             falseY.append(y)
 
     if not args.trueFirst:
-        plt.plot(falseX, falseY, 'o', ms=5, color='purple', alpha=args.opacity, clip_on=False)
-        plt.plot(trueX, trueY, 'o', ms=5, color='green', alpha=args.opacity, clip_on=False)
+        plt.plot(falseX, falseY, '.', ms=10, color='purple', alpha=args.opacity, clip_on=False)
+        plt.plot(trueX, trueY, '.', ms=10, color='green', alpha=args.opacity, clip_on=False)
     else:
-        plt.plot(trueX, trueY, 'o', ms=5, color='green', alpha=args.opacity, clip_on=False)
-        plt.plot(falseX, falseY, 'o', ms=5, color='purple', alpha=args.opacity, clip_on=False)
+        plt.plot(trueX, trueY, '.', ms=10, color='green', alpha=args.opacity, clip_on=False)
+        plt.plot(falseX, falseY, '.', ms=10, color='purple', alpha=args.opacity, clip_on=False)
 
-    plt.plot([0.3, maxX], [3.5, 3.5], color='black')
-    plt.plot([0.3, 0.3], [3.5, maxY], color='black')
+    plt.plot([0.25, maxX], [3.5, 3.5], color='black')
+    plt.plot([0.25, 0.25], [3.5, maxY], color='black')
 
     # Legend
-    yMargin = 0.015
+    yMargin = 0
     yShift = -0.048
     plt.text(0.05, 1 + yMargin, "   TP (" + str(len(trueX)) + ")" +
              "\n   FP (" + str(len(falseX)) + ")",
              va="top", transform=plt.gca().transAxes,
              bbox=dict(facecolor='white', edgecolor='black', boxstyle='square,pad=0.75'))
 
-    plt.plot(0.05, 1, 'o', ms=5, color='green', clip_on=False,
+    plt.plot(0.05, .989, '.', ms=10, color='green', clip_on=False,
              transform=plt.gca().transAxes, zorder=4)
-    plt.plot(0.05, 1 + yShift, 'o', ms=5, color='purple', clip_on=False,
+    plt.plot(0.05, .989 + yShift, '.', ms=10, color='purple', clip_on=False,
              transform=plt.gca().transAxes, zorder=4)
 
     plt.xlabel("Intron borders alignment score (IBA)")
     plt.ylabel("Intron mapping coverage (IMC)")
-    plt.yscale('log')
+    # plt.yscale('log')
     plt.box(on=None)
     if args.ylim != -1:
-        plt.ylim(1, args.ylim)
+        plt.ylim(0, args.ylim)
+    plt.xlim(0.1, maxX)
     plt.show()
     plt.savefig(outputFile, dpi=args.dpi)
 
 
 def main():
     args = parseCmd()
-    with open("visualize.args", "w") as file:
+    with open("scatter.sh", "w") as file:
+        file.write("#!/usr/bin/env bash\n")
         file.write(" ".join(sys.argv) + "\n")
     annot = loadAnnotation(args.annotation)
     plotScores(annot, args.input, args.output, args)
