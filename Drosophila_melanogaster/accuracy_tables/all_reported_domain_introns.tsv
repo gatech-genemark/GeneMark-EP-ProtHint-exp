@@ -1,0 +1,7 @@
+# Introns matching APPRIS introns
+Exlusion	All	In_Domains	%
+species_excluded	34870	19176	54.99
+subgenus_excluded	31992	18670	58.36
+family_excluded	29190	17992	61.64
+order_excluded	22239	15725	70.71
+phylum_excluded	16231	12878	79.34
