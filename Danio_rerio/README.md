@@ -43,6 +43,24 @@ Run GeneMark-EP/EP+ for all levels
 bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
 ```
 
+Make GeneMark-ES/EP/EP+ accuracy table. Gene level sensitivity is computed against the set
+of complete genes, this requires some additonal manipulations.
+
+```bash
+../bin/create_EP_accuracy_table.sh > accuracy_tables/all.gtf
+# Temporarily replace annot file with complete genes only annotation
+mv annot/annot.gtf annot/annot_copy
+# Repeat computation
+cp -P annot/completeGenes.gtf annot/annot.gtf
+../bin/create_EP_accuracy_table.sh > accuracy_tables/complete.gtf
+# Combine accuracy tables
+cat <(head -3 accuracy_tables/complete.gtf) <(tail -n +4 accuracy_tables/all.gtf) > \
+    accuracy_tables/es_ep_ep+_accuracy.tsv
+rm accuracy_tables/complete.gtf accuracy_tables/all.gtf
+# Put annotation back
+mv  annot/annot_copy annot/annot.gtf
+```
+
 ### Annotation Statistics
 
 Collect statistics about annotation. Treat partial CDS as regular CDS for

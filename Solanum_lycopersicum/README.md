@@ -42,6 +42,12 @@ Run GeneMark-EP/EP+ for all levels
 bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
 ```
 
+Make GeneMark-ES/EP/EP+ accuracy table
+
+```bash
+../bin/create_EP_accuracy_table.sh > accuracy_tables/es_ep_ep+_accuracy.tsv
+```
+
 ### Annotation Statistics
 
 Collect statistics about annotation
