@@ -106,6 +106,12 @@ hints sets.
 ../bin/create_merging_splitting_table.sh family_excluded 10000 > accuracy_tables/merging_splitting.tsv
 ```
 
+Accuracy table for EP+ with different hints sets.
+
+```
+../bin/create_plus_evidence_comparison_table.sh family_excluded > accuracy_tables/ep+_evidence_comparison.tsv
+```
+
 ### ProtHint run with box kernel
 
 Run ProtHint with a box instead of linear kernel for intron scoring to evaluate the

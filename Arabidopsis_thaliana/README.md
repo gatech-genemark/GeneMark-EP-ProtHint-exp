@@ -140,3 +140,9 @@ hints sets.
 ```bash
 ../bin/create_merging_splitting_table.sh genus_excluded 10000 > accuracy_tables/merging_splitting.tsv
 ```
+
+Accuracy table for EP+ with different hints sets.
+
+```
+../bin/create_plus_evidence_comparison_table.sh genus_excluded > accuracy_tables/ep+_evidence_comparison.tsv
+```

@@ -86,6 +86,12 @@ hints sets.
 ../bin/create_merging_splitting_table.sh family_excluded 10000 > accuracy_tables/merging_splitting.tsv
 ```
 
+Accuracy table for EP+ with different hints sets.
+
+```
+../bin/create_plus_evidence_comparison_table.sh family_excluded > accuracy_tables/ep+_evidence_comparison.tsv
+```
+
 ### Analysis of introns in conserved domains
 
 The analysis of how many mapped ProtHint introns are located within regions coding for conserved protein domains
