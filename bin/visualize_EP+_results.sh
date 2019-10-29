@@ -8,33 +8,35 @@
 # accuracy is not recomputed, only visualization is refreshed.
 # ==============================================================
 
-rootFolder=EP_plus_results_visualization
+#rootFolder=EP_plus_results_visualization
 FOLDERS=(species_excluded subgenus_excluded genus_excluded   \
       family_excluded order_excluded phylum_excluded)
 VALID_TYPES=(cds start stop initial internal terminal single multi gene singlegene multigene intron)
-ES=ESm
-ANNOT=annot/annot.gtf
+ES=ES
 PSEUDO=annot/pseudo.gff3
 
-if [ "$#" -eq 1 ]; then
+if [ "$#" -eq 3 ]; then
     x1=0
     x2=100
     y1=0
     y2=100
-elif [ ! "$#" -eq 5 ]; then
-    echo "Usage: $0 type [xmin xmax ymin ymax]"
+elif [ ! "$#" -eq 7 ]; then
+    echo "Usage: $0 annot.gtf outputFolder type [xmin xmax ymin ymax]"
     echo -n "Valid types are: "
     echo "${VALID_TYPES[*]}"
     exit
 else
-    x1=$2
-    x2=$3
-    y1=$4
-    y2=$5
+    x1=$4
+    x2=$5
+    y1=$6
+    y2=$7
 fi
 
 binFolder=$(readlink -e $(dirname $0))
-type="$1"
+ANNOT="$1"
+rootFolder="$2"
+type="$3"
+
 found=0
 for validType in "${VALID_TYPES[@]}"
 do
@@ -84,6 +86,6 @@ fi
 
 cd $rootFolder
 
-gnuplot -e "species='$title';type='$type';x1='$x1';x2='$x2';y1='$y1';y2='$y2';" $binFolder/visualize_ep_results.gp
+gnuplot -e "species='$title';type='$type';x1='$x1';x2='$x2';y1='$y1';y2='$y2';" $binFolder/visualize_EP+_results.gp
 
 convert -transparent white -density 600 ${type}.pdf -quality 100 ${type}.png
