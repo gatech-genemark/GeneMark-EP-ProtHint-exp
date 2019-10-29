@@ -65,6 +65,8 @@ Visualize EP+ results
 ```bash
 ../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 30 60 50 80
 ../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization gene 0 40 0 40
+../bin/visualize_EP+_results.sh annot/appris.gtf EP+_results_visualization/APPRIS cds 30 60 50 80
+../bin/visualize_EP+_results.sh annot/appris.gtf EP+_results_visualization/APPRIS gene 0 40 0 40
 ```
 
 ### Annotation Statistics
