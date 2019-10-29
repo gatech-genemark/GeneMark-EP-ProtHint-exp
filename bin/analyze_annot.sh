@@ -31,6 +31,13 @@ countTranscripts() {
     echo "Transcript count: $(grep -Po "transcript_id[^;]+;" $annot | sort | uniq | wc -l)"
 }
 
+
+countUniqueTranscripts() {
+    echo -n "Unique protein coding transcript count: "
+    $(dirname $0)/compare_intervals_exact.pl --f1 $annot --f2 $annot --v --gene | \
+        grep -A1 "After removal" | tail -1 | grep -Po "[0-9]+$"
+}
+
 countMultiSingle() {
     grep -P "Single" $annot   | grep -Po "gene_id[^;]+;" | sort | uniq > single_genes
     grep -P "Initial|Internal|Terminal" $annot | grep -Po "gene_id[^;]+;" | sort | uniq > multi_genes
@@ -51,6 +58,19 @@ intronsPerGene() {
     printf "Introns per transcript: %.2f\n" $(bc -l <<< "$introns/$transcripts")
     printf "Introns per multi-exon transcript: %.2f\n" $(bc -l <<< "$introns/$multiTranscripts")
 }
+
+transcriptsPerGene() {
+    out="$($(dirname $0)/compare_intervals_exact.pl --f1 $annot --f2 $annot --v --gene)"
+
+    uniqueTranscripts="$(echo "$out" | grep -A1 "After removal" | tail -1 | grep -Po "[0-9]+$")"
+    genes=$(grep -Po "gene_id[^;]+;" $annot | sort | uniq | wc -l)
+    singleTrGenes="$(echo "$out" | grep -A1 "transc-per-gene hist" | tail -1 | grep "^# 1" | grep -Po "[0-9]+$")"
+
+    printf "Unique protein coding transcripts per gene: %.2f\n" $(bc -l <<< "$uniqueTranscripts/$genes")
+    printf "Unique protein coding transcripts per multi-protein gene: %.2f\n" \
+        $(bc -l <<< "($uniqueTranscripts - $singleTrGenes) / ($genes - $singleTrGenes)")
+}
+
 
 splitStartsStops() {
     splitStarts=$(grep -P "\tstart_codon\t" $annot | grep "1_2" | cut -f1,4,5,7 | sort | uniq | wc -l)
@@ -115,8 +135,10 @@ echo "General statistics"
 echo "================================="
 countGenes
 countTranscripts
+countUniqueTranscripts
 countMultiSingle
 intronsPerGene
+transcriptsPerGene
 echo "================================="
 echo "Non-canonical Events"
 echo "================================="
