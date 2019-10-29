@@ -49,6 +49,13 @@ Make GeneMark-ES/EP/EP+ accuracy table
 ../bin/create_EP_accuracy_table.sh > accuracy_tables/es_ep_ep+_accuracy.tsv
 ```
 
+Visualize EP+ results
+
+```bash
+../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 65 95 65 95
+../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization gene 37.5 77.5 37.5 77.5
+```
+
 ### Annotation Statistics
 
 Collect statistics about annotation

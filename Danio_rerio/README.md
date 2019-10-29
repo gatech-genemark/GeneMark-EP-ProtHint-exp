@@ -28,7 +28,6 @@ Make ProtHint accuracy table
 ../bin/create_prothint_accuracy_table.sh > accuracy_tables/prothint_accuracy.tsv
 ```
 
-
 Generate start filtering table
 
 ```bash
@@ -59,6 +58,13 @@ cat <(head -3 accuracy_tables/complete.gtf) <(tail -n +4 accuracy_tables/all.gtf
 rm accuracy_tables/complete.gtf accuracy_tables/all.gtf
 # Put annotation back
 mv  annot/annot_copy annot/annot.gtf
+```
+
+Visualize EP+ results
+
+```bash
+../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 30 60 50 80
+../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization gene 0 40 0 40
 ```
 
 ### Annotation Statistics
