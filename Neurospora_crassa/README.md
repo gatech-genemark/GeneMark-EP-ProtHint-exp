@@ -43,6 +43,14 @@ Run GeneMark-EP/EP+ for all levels
 bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
 ```
 
+### Annotation Statistics
+
+Collect statistics about annotation
+
+```bash
+../bin/analyze_annot.sh annot/annot.gtf > accuracy_tables/annotation_stats.txt
+```
+
 ### Visualize intron scores
 
 Visualize scores of TP and FP introns as a scatter plot. Generate Sn-Sp curves for

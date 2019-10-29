@@ -1,0 +1,26 @@
+=================================
+General statistics
+=================================
+Gene count: 20172
+Transcript count: 33624
+Unique protein coding transcript count: 28506
+Single-exon genes: 662
+Multi-exon genes: 19260
+Genes with both multi and single exon transcripts: 250
+Introns per transcript: 5.74
+Introns per multi-exon transcript: 5.93
+Unique protein coding transcripts per gene: 1.41
+Unique protein coding transcripts per multi-protein gene: 2.86
+=================================
+Non-canonical Events
+=================================
+Number of split starts: 21/24526 (0.09%)
+Number of split stops: 28/21488 (0.13%)
+Number of introns longer than 10000: 117/107121 (0.11%)
+Percentage of CDS in longest isoforms (Longest isoform exon level Sn): 94.00
+---
+Number of CDS regions lost during merging of overlapping segments: 6435/130927 (4.91%)
+Number of CDS regions remaining after merging of overlapping segments: 124492/130927 (95.09%)
+---
+Number of CDS regions involved in an overlap: 12303/130927 (9.40%)
+Number of CDS regions which are not involved in any overlap: 118624/130927 (90.60%)

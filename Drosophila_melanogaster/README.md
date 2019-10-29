@@ -28,7 +28,6 @@ Make ProtHint accuracy table
 ../bin/create_prothint_accuracy_table.sh > accuracy_tables/prothint_accuracy.tsv
 ```
 
-
 Generate start filtering table
 
 ```bash
@@ -43,6 +42,13 @@ Run GeneMark-EP/EP+ for all levels
 bin/EP_batch.sh species_excluded subgenus_excluded family_excluded order_excluded phylum_excluded
 ```
 
+### Annotation Statistics
+
+Collect statistics about annotation
+
+```bash
+../bin/analyze_annot.sh annot/annot.gtf > accuracy_tables/annotation_stats.txt
+```
 
 ### Extra run with no min exon score
 

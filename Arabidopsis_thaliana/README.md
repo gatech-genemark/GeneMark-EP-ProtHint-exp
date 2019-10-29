@@ -43,6 +43,14 @@ Run GeneMark-EP/EP+ for all levels
 bin/EP_batch.sh species_excluded genus_excluded family_excluded order_excluded phylum_excluded
 ```
 
+### Annotation Statistics
+
+Collect statistics about annotation
+
+```bash
+../bin/analyze_annot.sh annot/annot.gtf > accuracy_tables/annotation_stats.txt
+```
+
 ### Extra run with no min exon score
 
 Run ProtHint on family-excluded level without filtering out introns bordered by exons with

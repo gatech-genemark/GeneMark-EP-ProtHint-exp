@@ -43,6 +43,14 @@ Run GeneMark-EP/EP+ for all levels
 bin/EP_batch.sh species_excluded family_excluded phylum_excluded
 ```
 
+### Annotation Statistics
+
+Collect statistics about annotation
+
+```bash
+../bin/analyze_annot.sh annot/annot.gtf > accuracy_tables/annotation_stats.txt
+```
+
 ### Evaluating effects of hints in the plus mode
 
 Run GeneMark-EP+ with introns only and with starts/stops only in the plus mode.

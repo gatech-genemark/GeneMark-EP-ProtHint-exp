@@ -43,6 +43,16 @@ Run GeneMark-EP/EP+ for all levels
 bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
 ```
 
+### Annotation Statistics
+
+Collect statistics about annotation. Treat partial CDS as regular CDS for
+this computation.
+
+```bash
+sed "s/CDS_partial/CDS/"  annot/annot.gtf > tmp
+../bin/analyze_annot.sh tmp > accuracy_tables/annotation_stats.txt
+rm tmp
+```
 
 ### Evaluating effects of hints in the plus mode
 
