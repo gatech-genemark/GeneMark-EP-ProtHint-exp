@@ -9,6 +9,8 @@ The core folder structure for all tested species looks as follows:
 
     .
     ├── bin                                   # Scripts for result generation and analysis
+    ├── OrthoDB                               # Info about OrthoDB species/proteins
+    ├── domains                               # Scripts and data for conserved domain analysis
     ├── species_1                             # A test species
     │   ├── annot                             # Annotation folder
     │   │   ├── annot.gtf                     # Processed annotation
@@ -27,7 +29,8 @@ The core folder structure for all tested species looks as follows:
     │   │   │    ├── train                    # GeneMark-EP run
     │   │   │    ├── plus                     # GeneMark-EP+ run
     │   ├── extra_runs                        # Folder with additional ProtHint/EP runs (if any)
-    │   ├── EP_plus_results_visualization     # Figures visualizing EP+ results
+    │   ├── accuracy_tables                   # Tables with experiment results
+    │   ├── EP+_results_visualization         # Figures visualizing EP+ results
     │   ├── EP_annot                          # Runs of EP and EP+ which use hints from annotation
     │   ├── README.md                         # Readme with species specific information
     ├── species_2                             # Another test species
@@ -38,4 +41,4 @@ The core folder structure for all tested species looks as follows:
 
 Specific ProtHint/GeneMark-EP folders may contain extra folders with
 additional experiments. In such cases, the experiments are documented within
-those folders.
+the species README file.
