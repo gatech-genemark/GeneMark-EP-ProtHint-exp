@@ -6,6 +6,9 @@
 #
 # If a file with accuracy is already found in EP_visualization folder,
 # accuracy is not recomputed, only visualization is refreshed.
+#
+# This is a D. rerio specific version which computes gene level
+# Sn against a set of complete genes only.
 # ==============================================================
 
 #rootFolder=EP_plus_results_visualization
@@ -15,27 +18,29 @@ VALID_TYPES=(cds start stop initial internal terminal single multi gene singlege
 ES=ES
 PSEUDO=annot/pseudo.gff3
 
-if [ "$#" -eq 3 ]; then
+if [ "$#" -eq 4 ]; then
     x1=0
     x2=100
     y1=0
     y2=100
-elif [ ! "$#" -eq 7 ]; then
-    echo "Usage: $0 annot.gtf outputFolder type [xmin xmax ymin ymax]"
+elif [ ! "$#" -eq 8 ]; then
+    echo "Usage: $0 annot.gtf completeGenes.gtf outputFolder type [xmin xmax ymin ymax]"
     echo -n "Valid types are: "
     echo "${VALID_TYPES[*]}"
     exit
 else
-    x1=$4
-    x2=$5
-    y1=$6
-    y2=$7
+    x1=$5
+    x2=$6
+    y1=$7
+    y2=$8
 fi
 
-binFolder=$(readlink -e $(dirname $0))
+binFolder=$(readlink -e "$(dirname $0)/../../bin")
 ANNOT="$1"
-rootFolder="$2"
-type="$3"
+COMPLETE_ANNOT="$2"
+rootFolder="$3"
+type="$4"
+
 
 found=0
 for validType in "${VALID_TYPES[@]}"
@@ -68,8 +73,10 @@ getAcc() {
     folder=$1
     if [ ! -f "$rootFolder/$folder.${type}.acc" ]; then
         if [ -f "$folder/EP/plus/genemark.gtf" ]; then
-            $(dirname $0)/compare_intervals_exact.pl --$comparisonFlags --f1 $ANNOT --f2 $folder/EP/plus/genemark.gtf --pseudo $PSEUDO |\
-            cut -f4 | tail -3 |  tr "\n" "," | sed -e "s/,$/\n/" > $rootFolder/$folder.${type}.acc
+            $binFolder/compare_intervals_exact.pl --$comparisonFlags --f1 $COMPLETE_ANNOT --f2 $folder/EP/plus/genemark.gtf --pseudo $PSEUDO |\
+                head -2 | tail -1 | cut -f4 | tr "\n" "," > $rootFolder/$folder.${type}.acc
+            $binFolder/compare_intervals_exact.pl --$comparisonFlags --f1 $ANNOT --f2 $folder/EP/plus/genemark.gtf --pseudo $PSEUDO |\
+                head -3 | tail -1 | cut -f4 >> $rootFolder/$folder.${type}.acc
         fi
     fi
 }
@@ -80,8 +87,10 @@ do
 done
 
 if [ ! -f "$rootFolder/es.${type}.acc" ]; then
-    $(dirname $0)/compare_intervals_exact.pl --$comparisonFlags --f1 $ANNOT --f2 $ES/genemark.gtf --pseudo $PSEUDO |\
-    cut -f4 | tail -3 |  tr "\n" "," | sed -e "s/,$/\n/" > $rootFolder/es.${type}.acc
+    $binFolder/compare_intervals_exact.pl --$comparisonFlags --f1 $COMPLETE_ANNOT --f2 $ES/genemark.gtf --pseudo $PSEUDO |\
+        head -2 | tail -1 | cut -f4 | tr "\n" "," > $rootFolder/es.${type}.acc
+    $binFolder/compare_intervals_exact.pl --$comparisonFlags --f1 $ANNOT --f2 $ES/genemark.gtf --pseudo $PSEUDO |\
+        head -3 | tail -1 | cut -f4 >> $rootFolder/es.${type}.acc
 fi
 
 cd $rootFolder
