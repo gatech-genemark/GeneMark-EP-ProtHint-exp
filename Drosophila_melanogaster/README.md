@@ -151,3 +151,20 @@ cd ../../..
 
 The analysis of how many mapped ProtHint introns are located within regions coding for conserved protein domains
 is documented in the `domains` folder.
+
+### Second Iteration
+
+Test the effect of a second iteration of ProtHint and EP+ using seeds from first
+iteration of GeneMark-EP+ instead of GeneMark-ES.
+
+```bash
+../bin/ProtHint/bin/prothint.py data/genome.fasta.masked data/family_excluded.fa \
+    --geneMarkGtf family_excluded/EP/plus/genemark.gtf --workdir extra_runs/family_excluded_iter_2 \
+    --maxProteinsPerSeed 25 > logs/family_excluded_iter_2_log
+cd extra_runs/family_excluded_iter_2
+mkdir -p EP/plus; cd EP/plus
+../../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq \
+    ../../../../data/genome.fasta.masked --max_intergenic 50000 --ep_score 4,0.25 --cores=8 \
+    --soft_mask 1000 --EP ../../prothint.gff --evidence ../../evidence.gff > log
+cd ../../../..
+```

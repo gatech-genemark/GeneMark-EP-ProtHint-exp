@@ -43,7 +43,8 @@ bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
 ```
 
 Make GeneMark-ES/EP/EP+ accuracy table. Gene level sensitivity is computed against the set
-of complete genes, this requires some additonal manipulations.
+of complete genes, this requires some additonal manipulations (which is still easier than
+writing a special script for this table)
 
 ```bash
 ../bin/create_EP_accuracy_table.sh > accuracy_tables/all.gtf
@@ -109,7 +110,31 @@ hints sets.
 ../bin/create_merging_splitting_table.sh genus_excluded 10000 > accuracy_tables/merging_splitting.tsv
 ```
 
+Accuracy table for EP+ with different hints sets. A script which is D. rerio specific is used
+here because gene level Sn is compared against a set of complete genes only.
+
+```bash
+./bin/create_plus_evidence_comparison_table.sh genus_excluded > accuracy_tables/ep+_evidence_comparison.tsv
+```
+
 ### Analysis of introns in conserved domains
 
 The analysis of how many mapped ProtHint introns are located within regions coding for conserved protein domains
 is documented in the `domains` folder.
+
+### Second Iteration
+
+Test the effect of a second iteration of ProtHint and EP+ using seeds from first
+iteration of GeneMark-EP+ instead of GeneMark-ES.
+
+```bash
+../bin/ProtHint/bin/prothint.py data/genome.fasta.masked data/genus_excluded.fa --geneMarkGtf \
+    genus_excluded/EP/plus/genemark.gtf --workdir extra_runs/genus_excluded_iter_2 \
+    --maxProteinsPerSeed 25 > logs/genus_excluded_iter_2_log
+cd extra_runs/family_excluded
+mkdir -p EP/plus; cd EP/plus
+../../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq \
+    ../../../../data/genome.fasta.masked --max_intergenic 50000 --ep_score 4,0.25 --cores=8 \
+    --soft_mask 50 --EP ../../prothint.gff --evidence ../../evidence.gff > log
+cd ../../../..
+```
