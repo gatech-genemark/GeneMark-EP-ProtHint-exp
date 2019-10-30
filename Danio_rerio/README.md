@@ -71,6 +71,25 @@ here because gene level Sn is compared against a set of complete genes only.
 ./bin/visualize_EP+_results.sh annot/appris.gtf annot/appris_completeGenes.gtf EP+_results_visualization/APPRIS gene 0 40 0 40
 ```
 
+Create a table comparing gene and exon level sensitivity against different sets
+of annotated genes. The columns in the table are:
+
+* Raw annot: Raw annotation in which partial CDS are not distinguished
+  from full CDS
+* Partial CDS removed: Annotation with removed partial CDS. This removes
+  some genes completely and creates many incomplete transcipts and genes.
+* Complete transcripts: Complete transcripts only (no partial CDS were
+  in these transcripts)
+* Incomplete transcripts: Incomplete transcripts only (at least one partial
+  CDS was in each transcript, they are still removed in this file)
+* Complete genes: Genes in which all transcripts are complete
+* Incomplete genes: Genes in which at least one transcript is incomplete.
+
+```bash
+./bin/create_partial_CDS_comparison_table.sh genus_excluded/EP/plus/genemark.gtf > \
+    accuracy_tables/partial_CDS_comparison.tsv
+```
+
 ### Annotation Statistics
 
 Collect statistics about annotation. Treat partial CDS as regular CDS for
