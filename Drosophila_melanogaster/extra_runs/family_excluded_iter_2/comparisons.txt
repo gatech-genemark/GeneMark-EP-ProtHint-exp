@@ -1,0 +1,25 @@
+
+62887	44598	0	154	299	17836	70.92	../../annot/annot.gtf
+57020	44598	154	0	11764	504	78.21	../../family_excluded/EP/plus/genemark.gtf
+57135	44598	299	11764	0	474	78.06	EP/plus/genemark.gtf
+
+CDS iter 1
+
+62887	44752	18135	71.16	../../annot/annot.gtf
+57020	44752	12268	78.48	../../family_excluded/EP/plus/genemark.gtf
+
+Gene iter 1
+
+13929	7956	5973	57.12	../../annot/annot.gtf
+13989	7956	6033	56.87	../../family_excluded/EP/plus/genemark.gtf
+
+CDS iter 2
+
+62887	44897	17990	71.39	../../annot/annot.gtf
+57135	44897	12238	78.58	EP/plus/genemark.gtf
+
+Gene iter 2
+
+13929	8009	5920	57.50	../../annot/annot.gtf
+14025	8009	6016	57.11	EP/plus/genemark.gtf
+

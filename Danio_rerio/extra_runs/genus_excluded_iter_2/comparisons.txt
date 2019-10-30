@@ -1,0 +1,25 @@
+
+251877	180388	0	1527	3220	66742	71.62	../../annot/annot.gtf
+335139	180388	1527	0	142491	10733	53.82	../../genus_excluded/EP/plus/genemark.gtf
+335906	180388	3220	142491	0	9807	53.70	EP/plus/genemark.gtf
+
+CDS iter 1
+
+251877	181915	69962	72.22	../../annot/annot.gtf
+335139	181915	153224	54.28	../../genus_excluded/EP/plus/genemark.gtf
+
+Gene iter 1
+
+24838	5734	19104	23.09	../../annot/annot.gtf
+48318	5734	42584	11.87	../../genus_excluded/EP/plus/genemark.gtf
+
+Gene iter 2
+
+251877	183608	68269	72.90	../../annot/annot.gtf
+335906	183608	152298	54.66	EP/plus/genemark.gtf
+
+CDS iter 2
+
+24838	6171	18667	24.84	../../annot/annot.gtf
+48787	6171	42616	12.65	EP/plus/genemark.gtf
+
