@@ -61,13 +61,14 @@ rm accuracy_tables/complete.gtf accuracy_tables/all.gtf
 mv  annot/annot_copy annot/annot.gtf
 ```
 
-Visualize EP+ results
+Visualize EP+ results. A script which is D. rerio specific is used
+here because gene level Sn is compared against a set of complete genes only.
 
 ```bash
 ../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 30 60 50 80
-../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization gene 0 40 0 40
+./bin/visualize_EP+_results.sh annot/annot.gtf annot/completeGenes.gtf EP+_results_visualization gene 0 40 0 40
 ../bin/visualize_EP+_results.sh annot/appris.gtf EP+_results_visualization/APPRIS cds 30 60 50 80
-../bin/visualize_EP+_results.sh annot/appris.gtf EP+_results_visualization/APPRIS gene 0 40 0 40
+./bin/visualize_EP+_results.sh annot/appris.gtf annot/appris_completeGenes.gtf EP+_results_visualization/APPRIS gene 0 40 0 40
 ```
 
 ### Annotation Statistics
