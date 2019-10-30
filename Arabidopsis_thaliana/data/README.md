@@ -8,7 +8,7 @@ tar xvf odb10_plants_fasta.tar.gz
 rm odb10_plants_fasta.tar.gz
 ```
 
-Function for creating a single fasta file with arthropda proteins, excluding
+Function for creating a single fasta file with plant proteins, excluding
 species supplied in a list.
 
 ```bash
@@ -61,3 +61,8 @@ sed -i -E "s/\.//" $output
 
 rm ids
 ```
+
+Note: _Klebsormidium nitens_ is in the same phylum (_Streptophyta_) as _A.thaliana_
+according to NCBI taxonomy. However, other sources put it in a different phylum
+(_Charophyta_): https://www.algaebase.org/search/species/detail/?species_id=34853
+Thereofore, it is in the phylum excluded list here.
