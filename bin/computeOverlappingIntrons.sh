@@ -2,7 +2,12 @@
 # ==============================================================
 # Tomas Bruna
 #
-# Compute how many introns overlap in a gff file
+# Compute number of distinct intron overlaps in a file
+#
+# Potential problem:
+# Introns within an intron of another gene on the same strand
+# are counted as well.
+#
 # ==============================================================
 
 if [ "$#" -ne 1 ]; then
@@ -34,10 +39,7 @@ combinedIntrons=$(mktemp)
 
 all=$(cat $combinedIntrons | wc -l)
 merged=$(bedtools merge -s -i $combinedIntrons  | wc -l)
-overlapping=$(bc <<< "$all-$merged")
+overlapping=$(bc <<< "$all - $merged")
+echo $overlapping
 
-percent=$(bc -l <<< "($overlapping / $all) * 100")
-
-
-printf "%d / %d (%.2f%%)\n" $overlapping $all $percent
-
+rm $combinedIntrons
