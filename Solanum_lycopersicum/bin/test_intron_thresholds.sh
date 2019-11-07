@@ -17,7 +17,7 @@ HCPrinter=$(readlink -e "${binDir}/../../bin/ProtHint/bin/print_high_confidence.
 
 EP_plus() {
     $GMES --cores=16 --verbose --seq $genome \
-        --max_intergenic 50000 --soft_mask 1000 --EP ../../../prothint.gff \
+        --max_intergenic 50000 --soft_mask 50 --EP ../../../prothint.gff \
         --evidence evidence.gff --predict_with ../../train/output/gmhmm.mod > log
 }
 
@@ -47,11 +47,11 @@ test_thresholds() {
     cd intron_plus_thresholds
 
     predict_run 0.1
-    predict_run 0.15
+    # predict_run 0.15
     predict_run 0.2
     predict_run 0.25
     predict_run 0.3
-    predict_run 0.35
+    # predict_run 0.35
     predict_run 0.4
 
     cd ../../..

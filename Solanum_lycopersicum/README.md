@@ -7,7 +7,7 @@ Run GeneMark-ES
 ```bash
 cd ES
 ../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq \
-    ../data/genome.fasta.masked --max_intergenic 50000 --cores=8 --soft_mask 1000 --ES > log
+    ../data/genome.fasta.masked --max_intergenic 50000 --cores=8 --soft_mask 50 --ES > log
 cd ..
 ```
 
@@ -107,14 +107,14 @@ cd genus_excluded/EP
 mkdir plus_introns_only; cd plus_introns_only
 grep Intron ../../evidence.gff > evidence.gff
 ../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
-    --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 1000 --EP ../../prothint.gff --evidence evidence.gff > log
+    --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 50 --EP ../../prothint.gff --evidence evidence.gff > log
 cd ..
 
 # Starts/stops only
 mkdir plus_starts_stops_only; cd plus_starts_stops_only
 grep -P "start_codon|stop_codon" ../../evidence.gff > evidence.gff
 ../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
-    --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 1000 --EP ../../prothint.gff --evidence evidence.gff > log
+    --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 50 --EP ../../prothint.gff --evidence evidence.gff > log
 cd ../../..
 ```
 
