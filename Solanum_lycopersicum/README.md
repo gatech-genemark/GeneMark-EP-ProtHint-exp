@@ -51,7 +51,7 @@ Make GeneMark-ES/EP/EP+ accuracy table
 Visualize EP+ results
 
 ```bash
-../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 30 60 50 80
+../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 40 70 50 80
 ../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization gene 0 40 0 40
 ```
 
@@ -76,7 +76,7 @@ Visualize the Sn-Sp of EP+ results
 
 ```bash
 echo -n "genus_excluded order_excluded phylum_excluded" | xargs -I {} -d " " bash -c 'cd {}/EP/intron_plus_thresholds; \
-    ../../../../bin/visualize_Intron_EP+_thresholds.sh gene 5 25 15 35; cd ../../'
+    ../../../../bin/visualize_Intron_EP+_thresholds.sh gene 15 35 15 35; cd ../../'
 ```
 
 Generate data for combined Sn-Sn curves of introns and plot the curves
