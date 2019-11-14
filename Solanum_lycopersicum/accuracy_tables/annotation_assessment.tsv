@@ -1,0 +1,16 @@
+GeneMark
+---------	ES_A	ES_B	EP+_A_genus	EP+_B_genus	EP+_A_order	EP+_B_order	EP+_A_phylum	EP+_B_phylum
+Gene_Sn--	26.67	7.41	58.82	8.44	52.85	8.20	38.22	7.90
+Exon_Sn--	78.76	48.57	89.65	50.66	88.07	50.19	82.73	48.40
+Intron_Sn	81.47	54.08	93.85	56.36	92.74	55.94	87.02	54.06
+
+ProtHint HC
+---------	ProtHint_genus_A	ProtHint_genus_B	ProtHint_order_A	ProtHint_order_B	ProtHint_phylum_A	ProtHint_phylum_B
+Intron_Sn	85.99	44.82	78.01	39.49	30.23	14.03
+Start_Sn-	65.06	25.12	51.36	18.48	6.16	1.72
+Stop_Sn--	68.18	23.75	53.15	17.58	8.21	2.12
+
+Genes in set A: 14146
+Genes in set B: 13464
+Introns in set A: 72204
+Introns in set B: 57024

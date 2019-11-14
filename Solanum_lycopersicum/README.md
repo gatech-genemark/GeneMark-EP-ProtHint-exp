@@ -63,6 +63,12 @@ Collect statistics about annotation
 ../bin/analyze_annot.sh annot/annot.gtf > accuracy_tables/annotation_stats.txt
 ```
 
+Create annotation assessment table
+
+```bash
+./bin/create_annot_assessment_table.sh > accuracy_tables/annotation_assessment.tsv
+```
+
 ### Experiments with different intron thresholds
 
 Run prediction step of GeneMark-EP+ with introns filtered by different IBA thresholds
