@@ -1,4 +1,13 @@
-# Overview
+# Experiments for ProtHint and GeneMark-EP/EP+ projects
+
+Tomas Bruna, Alexandre Lomsadze, Mark Borodovsky
+
+Georgia Institute of Technology, Atlanta, Georgia, USA
+
+Reference: _GeneMark-EP and -EP+: automatic eukaryotic gene prediction supported by spliced aligned proteins_ (paper in preparation, 2019)
+
+
+## Overview
 
 This repository contains documentation of experiments, data and results for
 ProtHint and GeneMark-EP/EP+ projects.
