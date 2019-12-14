@@ -1,5 +1,10 @@
 # Neurospora crassa
 
+### Data preparation
+
+Prior to running the experiments, follow the instructions in `data` and `annot`
+folders to prepare input and annotation files.
+
 ### GeneMark-ES
 
 Run GeneMark-ES
@@ -58,7 +63,7 @@ Visualize EP+ results
 
 ### Annotation Statistics
 
-Collect statistics about annotation
+Collect statistics about annotation.
 
 ```bash
 ../bin/analyze_annot.sh annot/annot.gtf > accuracy_tables/annotation_stats.txt
