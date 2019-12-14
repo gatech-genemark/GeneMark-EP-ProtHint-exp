@@ -1,5 +1,10 @@
 # Danio rerio
 
+### Data preparation
+
+Prior to running the experiments, follow the instructions in `data` and `annot`
+folders to prepare input and annotation files.
+
 ### GeneMark-ES
 
 Run GeneMark-ES
