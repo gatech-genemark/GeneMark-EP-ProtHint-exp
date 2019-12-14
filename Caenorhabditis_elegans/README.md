@@ -1,5 +1,10 @@
 # Caenorhabditis elegans
 
+### Data preparation
+
+Prior to running the experiments, follow the instructions in `data` and `annot`
+folders to prepare input and annotation files.
+
 ### GeneMark-ES
 
 Run GeneMark-ES
@@ -22,7 +27,7 @@ ls data | grep "\.fa$" | sed "s/\.fa//" | xargs -I{} bash -c '../bin/ProtHint/bi
     --maxProteinsPerSeed 25 2> logs/{}_log'
 ```
 
-Make ProtHint accuracy table
+Make ProtHint accuracy table.
 
 ```bash
 ../bin/create_prothint_accuracy_table.sh > accuracy_tables/prothint_accuracy.tsv
@@ -60,7 +65,7 @@ Visualize EP+ results
 
 ### Annotation Statistics
 
-Collect statistics about annotation
+Collect statistics about annotation.
 
 ```bash
 ../bin/analyze_annot.sh annot/annot.gtf > accuracy_tables/annotation_stats.txt
