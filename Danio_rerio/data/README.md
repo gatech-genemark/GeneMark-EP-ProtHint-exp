@@ -1,3 +1,19 @@
+## Genome preparation
+
+Unzip the genome before starting experiments
+
+```bash
+gunzip genome.fasta.masked.gz
+```
+### Genome information
+
+* The genome was downloaded from ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/035/GCF_000002035.6_GRCz11/GCF_000002035.6_GRCz11_genomic.fna.gz
+* The masking from GCF_000002035.6 was kept
+* Unplaced contigs and contigs of organelles were removed from the genome.
+* The scrips used to process the genome are documented at https://github.com/gatech-genemark/EukSpecies/tree/master/Danio_rerio
+
+## Preparation of proteins
+
 ### Chordata protein sets
 
 Download vertebrata proteins from OrthoDB
