@@ -1,3 +1,19 @@
+## Genome preparation
+
+Unzip the genome before starting experiments
+
+```bash
+gunzip genome.fasta.masked.gz
+```
+### Genome information
+
+* The genome was downloaded from ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/735/GCF_000001735.4_TAIR10.1/GCF_000001735.4_TAIR10.1_genomic.fna.gz
+* Genome was _de novo_ masked for repeats with [RepeatModeler](http://www.repeatmasker.org/RepeatModeler/) and [RepeatMasker](http://www.repeatmasker.org/RMDownload.html).
+* Unplaced contigs and contigs of organelles were removed from the genome.
+* The scrips used to process the genome are documented at https://github.com/gatech-genemark/EukSpecies/tree/master/Arabidopsis_thaliana
+
+## Preparation of proteins
+
 ### Plants protein sets
 
 Download plants proteins from OrthoDB
