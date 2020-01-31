@@ -38,7 +38,7 @@ table="$(echo -en "mode\nmerged\nsplit")"
 appendColumn "$(getSplitsMerges "ES" "ES")"
 appendColumn "$(getSplitsMerges "EP" "$prothintFolder/EP/train/")"
 appendColumn "$(getSplitsMerges "EP+_introns" "$prothintFolder/EP/plus_introns_only/")"
-appendColumn "$(getSplitsMerges "ES+_start_stops" "$prothintFolder/EP/plus_starts_stops_only/")"
+appendColumn "$(getSplitsMerges "EP+_start_stops" "$prothintFolder/EP/plus_starts_stops_only/")"
 appendColumn "$(getSplitsMerges "EP+" "$prothintFolder/EP/plus/")"
 
 echo "$table"
