@@ -31,7 +31,6 @@ countTranscripts() {
     echo "Transcript count: $(grep -Po "transcript_id[^;]+;" $annot | sort | uniq | wc -l)"
 }
 
-
 countUniqueTranscripts() {
     echo -n "Unique protein coding transcript count: "
     $(dirname $0)/compare_intervals_exact.pl --f1 $annot --f2 $annot --v --gene | \
@@ -64,8 +63,10 @@ transcriptsPerGene() {
 
     uniqueTranscripts="$(echo "$out" | grep -A1 "After removal" | tail -1 | grep -Po "[0-9]+$")"
     genes=$(grep -Po "gene_id[^;]+;" $annot | sort | uniq | wc -l)
+    transcripts=$(grep -Po "transcript_id[^;]+;" $annot | sort | uniq | wc -l)
     singleTrGenes="$(echo "$out" | grep -A1 "transc-per-gene hist" | tail -1 | grep "^# 1" | grep -Po "[0-9]+$")"
 
+    printf "Transcripts per gene: %.2f\n" $(bc -l <<< "$transcripts/$genes")
     printf "Unique protein coding transcripts per gene: %.2f\n" $(bc -l <<< "$uniqueTranscripts/$genes")
     printf "Unique protein coding transcripts per multi-protein gene: %.2f\n" \
         $(bc -l <<< "($uniqueTranscripts - $singleTrGenes) / ($genes - $singleTrGenes)")
