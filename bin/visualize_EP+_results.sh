@@ -13,6 +13,7 @@ FOLDERS=(species_excluded subgenus_excluded genus_excluded   \
       family_excluded order_excluded phylum_excluded)
 VALID_TYPES=(cds start stop initial internal terminal single multi gene singlegene multigene intron)
 ES=ES
+ET=ET
 PSEUDO=annot/pseudo.gff3
 
 if [ "$#" -eq 3 ]; then
@@ -83,6 +84,12 @@ if [ ! -f "$rootFolder/es.${type}.acc" ]; then
     $(dirname $0)/compare_intervals_exact.pl --$comparisonFlags --f1 $ANNOT --f2 $ES/genemark.gtf --pseudo $PSEUDO |\
     cut -f4 | tail -3 |  tr "\n" "," | sed -e "s/,$/\n/" > $rootFolder/es.${type}.acc
 fi
+
+if [ ! -f "$rootFolder/et.${type}.acc" ]; then
+    $(dirname $0)/compare_intervals_exact.pl --$comparisonFlags --f1 $ANNOT --f2 $ET/genemark.gtf --pseudo $PSEUDO |\
+    cut -f4 | tail -3 |  tr "\n" "," | sed -e "s/,$/\n/" > $rootFolder/et.${type}.acc
+fi
+
 
 cd $rootFolder
 

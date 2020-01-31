@@ -37,6 +37,7 @@ table=$(echo -e "---------\n---------\nGene_Sn--\nGene_Sp--\nExon_Sn--\
 \nExon_Sp--\nIntron_Sn\nIntron_Sp")
 
 appendColumn "$(getColumn none ES ES/genemark.gtf)"
+appendColumn "$(getColumn none ET ET/genemark.gtf)"
 
 levels=($(ls -d ./*_excluded | tr -d ./))
 

@@ -13,6 +13,7 @@ unset key
 set xlabel "Specificity"
 set ylabel "Sensitivity"
 
+
 set mxtics 2
 set mytics 2
 
@@ -48,3 +49,6 @@ plot "es.".type.".acc" using 2:1 title "ES" w p pt 12 lw pointWidth ps pointSize
      "genus_excluded.".type.".acc" using 2:1  title "genus excluded" w p pt 4 lw pointWidth ps pointSize - 0.1 lt rgb genusColor, \
      "subgenus_excluded.".type.".acc" using 2:1 title "subgenus excluded" w p pt 8 lw pointWidth ps pointSize lt rgb subgenusColor, \
      "species_excluded.".type.".acc" using 2:1  title "species excluded" w p pt 2 lw pointWidth ps pointSize lt rgb speciesColor
+
+#     "et.".type.".acc" using 2:1 title "ET" w p pt 6 lw pointWidth ps pointSize - 0.1 lt rgb "black", \
+
