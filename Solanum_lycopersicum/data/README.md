@@ -9,7 +9,7 @@ rm genome.fasta.masked_*
 ```
 ### Genome information
 
-* The genome was downloaded from ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/188/115/GCF_000188115.4_SL3.0/GCF_000188115.4_SL3.0_genomic.fna.gz
+* The genome was downloaded from ftp://ftp.solgenomics.net/tomato_genome/assembly/build_4.00/S_lycopersicum_chromosomes.4.00.fa
 * Genome was _de novo_ masked for repeats with [RepeatModeler](http://www.repeatmasker.org/RepeatModeler/) and [RepeatMasker](http://www.repeatmasker.org/RMDownload.html).
 * Unplaced contigs and contigs of organelles were removed from the genome.
 * The scrips used to process the genome are documented at https://github.com/gatech-genemark/EukSpecies/tree/master/Solanum_lycopersicum
