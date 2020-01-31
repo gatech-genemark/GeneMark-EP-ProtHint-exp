@@ -11,8 +11,19 @@ Run GeneMark-ES
 
 ```bash
 cd ES
-../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq \
-    ../data/genome.fasta.masked --max_intergenic 50000 --cores=8 --soft_mask 50 --ES > log
+../../bin/GeneMarkES/bin/gmes_petap.pl --verbose --seq \
+    ../data/genome.fasta.masked --cores=8 --soft_mask auto --ES > log
+cd ..
+```
+
+### GeneMark-ET
+
+Run GeneMark-ET to compare protein results against RNA-Seq
+
+```bash
+mkdir ET; cd ET
+../../bin/GeneMarkES/bin/gmes_petap.pl --verbose  --seq ../data/genome.fasta.masked \
+    --cores=8 --soft_mask auto --ET ../varus/varus.gff > log
 cd ..
 ```
 
@@ -23,8 +34,7 @@ prepare protein data.
 
 ```bash
 ls data | grep "\.fa$" | sed "s/\.fa//" | xargs -I{} bash -c '../bin/ProtHint/bin/prothint.py \
-    data/genome.fasta.masked data/{}.fa --geneMarkGtf ES/genemark.gtf --workdir {} \
-    --maxProteinsPerSeed 25 2> logs/{}_log'
+    data/genome.fasta.masked data/{}.fa --geneMarkGtf ES/genemark.gtf --workdir {} 2> logs/{}_log'
 ```
 
 Make ProtHint accuracy table
@@ -44,7 +54,7 @@ Generate start filtering table
 Run GeneMark-EP/EP+ for all levels
 
 ```bash
-bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
+../bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
 ```
 
 Make GeneMark-ES/EP/EP+ accuracy table. Gene level sensitivity is computed against the set
@@ -70,9 +80,9 @@ Visualize EP+ results. A script which is D. rerio specific is used
 here because gene level Sn is compared against a set of complete genes only.
 
 ```bash
-../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 40 70 50 80
+./bin/visualize_EP+_results.sh annot/annot.gtf annot/completeGenes.gtf EP+_results_visualization cds 40 70 60 90
 ./bin/visualize_EP+_results.sh annot/annot.gtf annot/completeGenes.gtf EP+_results_visualization gene 0 40 0 40
-../bin/visualize_EP+_results.sh annot/appris.gtf EP+_results_visualization/APPRIS cds 30 60 50 80
+./bin/visualize_EP+_results.sh annot/appris.gtf annot/appris_completeGenes.gtf EP+_results_visualization/APPRIS cds 30 60 50 80
 ./bin/visualize_EP+_results.sh annot/appris.gtf annot/appris_completeGenes.gtf EP+_results_visualization/APPRIS gene 0 40 0 40
 ```
 
@@ -117,14 +127,14 @@ cd genus_excluded/EP
 mkdir plus_introns_only; cd plus_introns_only
 grep Intron ../../evidence.gff > evidence.gff
 ../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
-    --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 50 --EP ../../prothint.gff --evidence evidence.gff > log
+    --cores=8 --soft_mask auto --EP ../../prothint.gff --evidence evidence.gff > log
 cd ..
 
 # Starts/stops only
 mkdir plus_starts_stops_only; cd plus_starts_stops_only
 grep -P "start_codon|stop_codon" ../../evidence.gff > evidence.gff
 ../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
-    --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 50 --EP ../../prothint.gff --evidence evidence.gff > log
+    --cores=8 --soft_mask auto --EP ../../prothint.gff --evidence evidence.gff > log
 cd ../../..
 ```
 
