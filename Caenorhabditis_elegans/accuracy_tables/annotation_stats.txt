@@ -9,6 +9,7 @@ Multi-exon genes: 19260
 Genes with both multi and single exon transcripts: 250
 Introns per transcript: 5.74
 Introns per multi-exon transcript: 5.93
+Transcripts per gene: 1.67
 Unique protein coding transcripts per gene: 1.41
 Unique protein coding transcripts per multi-protein gene: 2.86
 =================================

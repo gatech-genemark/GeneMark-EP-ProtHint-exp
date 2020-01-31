@@ -1,5 +1,5 @@
 # Introns matching APPRIS introns
 Exlusion	All	In_Domains	%
-genus_excluded	102379	67518	65.95
-order_excluded	92199	63755	69.15
-phylum_excluded	45308	37951	83.76
+genus_excluded	108236	71239	65.82
+order_excluded	97457	67335	69.09
+phylum_excluded	47860	40117	83.82

@@ -1,4 +1,4 @@
 family_excluded
-mode	ES	EP	EP+_introns	ES+_start_stops	EP+
-merged	2335	2047	2043	1896	1893
-split	283	396	351	405	355
+mode	ES	EP	EP+_introns	EP+_start_stops	EP+
+merged	1120	1076	1090	1019	1029
+split	588	725	614	731	622
