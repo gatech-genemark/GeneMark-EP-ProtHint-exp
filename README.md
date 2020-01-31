@@ -4,7 +4,7 @@ Tomas Bruna, Alexandre Lomsadze, Mark Borodovsky
 
 Georgia Institute of Technology, Atlanta, Georgia, USA
 
-Reference: _GeneMark-EP and -EP+: automatic eukaryotic gene prediction supported by spliced aligned proteins_ (paper in preparation, 2019)
+Reference: [_GeneMark-EP and -EP+: automatic eukaryotic gene prediction supported by spliced aligned proteins_](https://www.biorxiv.org/content/10.1101/2019.12.31.891218v1)
 
 
 ## Overview
