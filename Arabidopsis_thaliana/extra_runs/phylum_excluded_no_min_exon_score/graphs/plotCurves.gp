@@ -7,10 +7,10 @@ unset key
 set xlabel "Specificity"
 set ylabel "Sensitivity"
 
-set mxtics 2
-set mytics 2
+#set mxtics 2
+#set mytics 2
 
-set grid xtics ytics mxtics mytics lt 0 lw 1, lt rgb "#bbbbbb" lw 1
+#set grid xtics ytics mxtics mytics lt 0 lw 1, lt rgb "#bbbbbb" lw 1
 
 set term pdf
 set output "curves.pdf"
