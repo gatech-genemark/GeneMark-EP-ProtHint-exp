@@ -18,7 +18,8 @@ cd ..
 
 ### GeneMark-ET
 
-Run GeneMark-ET to compare protein results against RNA-Seq
+Run GeneMark-ET to compare protein results against RNA-Seq. RNA-Seq was sampled
+and aligned by VARUS, see the `varus` folder for details.
 
 ```bash
 mkdir ET; cd ET
