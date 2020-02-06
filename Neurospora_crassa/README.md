@@ -11,7 +11,7 @@ Run GeneMark-ES
 
 ```bash
 cd ES
-../../bin/GeneMarkES/bin/gmes_petap.pl --verbose --fungus --seq \
+../../bin/gmes/gmes_petap.pl --verbose --fungus --seq \
     ../data/genome.fasta.masked --cores=8 --soft_mask 0 --ES > log
 cd ..
 ```
@@ -23,7 +23,7 @@ and aligned by VARUS, see the `varus` folder for details.
 
 ```bash
 mkdir ET; cd ET
-../../bin/GeneMarkES/bin/gmes_petap.pl --verbose --fungus --seq \
+../../bin/gmes/gmes_petap.pl --verbose --fungus --seq \
     ../data/genome.fasta.masked --cores=8 --soft_mask 0 --ET ../varus/varus.gff > log
 cd ..
 ```
@@ -135,14 +135,14 @@ cd genus_excluded/EP
 # Introns only
 mkdir plus_introns_only; cd plus_introns_only
 grep Intron ../../evidence.gff > evidence.gff
-../../../../bin/GeneMarkES/bin/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
+../../../../bin/gmes/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
     --cores=8 --fungus --soft_mask 0 --EP ../../prothint.gff --evidence evidence.gff > log
 cd ..
 
 # Starts/stops only
 mkdir plus_starts_stops_only; cd plus_starts_stops_only
 grep -P "start_codon|stop_codon" ../../evidence.gff > evidence.gff
-../../../../bin/GeneMarkES/bin/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
+../../../../bin/gmes/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
     --soft_mask 0 --cores=8 --fungus --EP ../../prothint.gff --evidence evidence.gff > log
 cd ../../..
 ```

@@ -15,7 +15,7 @@ fi
 binDir=$(dirname "$0")
 genome=$(readlink -e "data/genome.fasta.masked")
 
-GMES=$(readlink -e "${binDir}/GeneMarkES/bin/gmes_petap.pl")
+GMES=$(readlink -e "${binDir}/gmes/gmes_petap.pl")
 
 EP_ARGS="--verbose \
     --seq $genome \

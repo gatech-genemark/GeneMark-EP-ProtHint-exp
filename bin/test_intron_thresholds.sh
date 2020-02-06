@@ -12,7 +12,7 @@ fi
 
 binDir=$(dirname "$0")
 genome=$(readlink -e "data/genome.fasta.masked")
-GMES=$(readlink -e "${binDir}/GeneMarkES/bin/gmes_petap.pl")
+GMES=$(readlink -e "${binDir}/gmes/gmes_petap.pl")
 HCPrinter=$(readlink -e "${binDir}/ProtHint/bin/print_high_confidence.py")
 
 EP_plus() {
