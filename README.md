@@ -12,6 +12,37 @@ Reference: [_GeneMark-EP and -EP+: automatic eukaryotic gene prediction supporte
 This repository contains documentation of experiments, data and results for
 ProtHint and GeneMark-EP/EP+ projects.
 
+## Program Versions
+
+All experiments in this folder were run with GeneMark-ES/EP version `5.57_lic` and ProtHint version
+`v2.3.0`. To reproduce the experiments, install these versions of the programs into
+`bin/gmes` and `bin/ProtHint` folders.
+
+Version of DIAMOND and Spaln within ProtHint were `0.9.24` and `2.3.3d`, respectively.
+
+GeneMark suite is available at: http://topaz.gatech.edu/GeneMark/license_download.cgi
+ProtHint is available at: https://github.com/gatech-genemark/ProtHint/releases
+
+## Example of a full run
+
+To run an entire GeneMark-EP+ pipeline with a single command, including ProtHint, use:
+
+    cd full_run_example
+    ../bin/gmes/gmes_petap.pl --seq ../Drosophila_melanogaster/data/genome.fasta.masked \
+        --EP --dbep ../Drosophila_melanogaster/data/family_excluded.fa --verbose --cores=16
+
+If the matching version of GeneMark-EP+ was used, the result should match the result
+stored in `full_run_example/expected_genemark.gtf`. Follow the instructions in `Drosophila_melanogaster/data`
+folder to prepare genome and protein data.
+
+This example uses D. melanogaster with proteins from species outside of the same
+taxonomical family.
+
+In the rest of the experiments, GeneMark-ES, ProtHint, and GeneMark-EP+ are run separately
+to evaluate different aspects of the programs. However, all results in
+`species/{}_excluded/EP/plus` can be reproduced with the same single command which was
+used to generate the result in `full_run_example` folder.
+
 ## Folder structure
 
 The core folder structure for all tested species looks as follows:
@@ -20,16 +51,19 @@ The core folder structure for all tested species looks as follows:
     ├── bin                                   # Scripts for result generation and analysis
     ├── OrthoDB                               # Info about OrthoDB species/proteins
     ├── domains                               # Scripts and data for conserved domain analysis
+    ├── full_run_example                      # Example of a full GeneMark-EP+ run
     ├── species_1                             # A test species
     │   ├── annot                             # Annotation folder
     │   │   ├── annot.gtf                     # Processed annotation
     │   │   ├── pseudo.gff3                   # Coordinates of pseudogenic regions
     │   ├── data                              # Folder with softmasked genome and input proteins
-    │   │   ├── genome.fasta                  # Softmasked genome
-    │   │   ├── proteins_no_X                 # Input proteins with X taxonomical level excluded
+    │   │   ├── genome.fasta.masked           # Softmasked genome
+    │   │   ├── {}_excluded.fa                # Input proteins with {} taxonomical level excluded
     │   ├── bin                               # Scripts specific for this species
-    │   ├── ESm                               # Results of a GeneMark-ES run
-    │   ├── level_X_excluded                  # Results at a certain protein exclusion level X
+    │   ├── ES                                # GeneMark-ES run
+    │   ├── ET                                # GeneMark-ET run
+    │   ├── varus                             # VARUS run
+    │   ├── {}_excluded                       # Results at a certain protein exclusion level {}
     │   │   ├── prothint.gff                  # All reported ProtHint hints
     │   │   ├── evidence.gff                  # High-Confidence ProtHint hints
     │   │   ├── cmd.log                       # Command used to run this ProtHint run
@@ -40,7 +74,6 @@ The core folder structure for all tested species looks as follows:
     │   ├── extra_runs                        # Folder with additional ProtHint/EP runs (if any)
     │   ├── accuracy_tables                   # Tables with experiment results
     │   ├── EP+_results_visualization         # Figures visualizing EP+ results
-    │   ├── EP_annot                          # Runs of EP and EP+ which use hints from annotation
     │   ├── README.md                         # Readme with species specific information
     ├── species_2                             # Another test species
     ├── ...
