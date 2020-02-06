@@ -167,3 +167,22 @@ Accuracy table for EP+ with different hints sets.
 ```bash
 ../bin/create_plus_evidence_comparison_table.sh genus_excluded > accuracy_tables/ep+_evidence_comparison.tsv
 ```
+
+
+### Second Iteration
+
+Test the effect of a second iteration of ProtHint and EP+ using seeds from first
+iteration of GeneMark-EP+ instead of GeneMark-ES.
+
+```bash
+../bin/ProtHint/bin/prothint.py data/genome.fasta.masked data/genus_excluded.fa \
+    --geneMarkGtf genus_excluded/EP/plus/genemark.gtf --workdir extra_runs/genus_excluded_iter_2 \
+    > logs/genus_excluded_iter_2_log
+cd extra_runs/family_excluded_iter_2
+mkdir -p EP/plus; cd EP/plus
+../../../../../bin/gmes/gmes_petap.pl --verbose --seq \
+    ../../../../data/genome.fasta.masked --cores=8 \
+    --soft_mask auto --EP ../../prothint.gff --evidence ../../evidence.gff > log
+cd ../../../..
+```
+

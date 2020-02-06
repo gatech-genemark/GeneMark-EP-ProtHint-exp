@@ -179,7 +179,7 @@ iteration of GeneMark-EP+ instead of GeneMark-ES.
     > logs/family_excluded_iter_2_log
 cd extra_runs/family_excluded_iter_2
 mkdir -p EP/plus; cd EP/plus
-../../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq \
+../../../../../bin/GeneMarkES/bin/gmes_petap.pl --verbose --seq \
     ../../../../data/genome.fasta.masked --cores=8 \
     --soft_mask auto --EP ../../prothint.gff --evidence ../../evidence.gff > log
 cd ../../../..
