@@ -14,28 +14,29 @@ ProtHint and GeneMark-EP/EP+ projects.
 
 ## Program Versions
 
-All experiments in this folder were run with GeneMark-ES/EP version `5.57_lic` and ProtHint version
+All experiments in this folder were run with GeneMark-ES/EP/ET version `5.57_lic` and ProtHint version
 `v2.3.0`. To reproduce the experiments, install these versions of the programs into
 `bin/gmes` and `bin/ProtHint` folders.
 
 Version of DIAMOND and Spaln within ProtHint were `0.9.24` and `2.3.3d`, respectively.
 
-GeneMark suite is available at: http://topaz.gatech.edu/GeneMark/license_download.cgi
-ProtHint is available at: https://github.com/gatech-genemark/ProtHint/releases
+* GeneMark suite is available at: http://topaz.gatech.edu/GeneMark/license_download.cgi
+* ProtHint is available at: https://github.com/gatech-genemark/ProtHint/releases
 
 ## Example of a full run
 
-To run an entire GeneMark-EP+ pipeline with a single command, including ProtHint, use:
+To run the entire GeneMark-EP+ pipeline with a single command, use:
 
     cd full_run_example
     ../bin/gmes/gmes_petap.pl --seq ../Drosophila_melanogaster/data/genome.fasta.masked \
         --EP --dbep ../Drosophila_melanogaster/data/family_excluded.fa --verbose --cores=16
 
 If the matching version of GeneMark-EP+ was used, the result should match the result
-stored in `full_run_example/expected_genemark.gtf`. Follow the instructions in `Drosophila_melanogaster/data`
-folder to prepare genome and protein data.
+stored in `full_run_example/expected_genemark.gtf`. 
 
-This example uses D. melanogaster with proteins from species outside of the same
+Follow the instructions in `Drosophila_melanogaster/data` folder to prepare genome and protein data.
+
+The example uses D. melanogaster with proteins from species outside of the same
 taxonomical family.
 
 In the rest of the experiments, GeneMark-ES, ProtHint, and GeneMark-EP+ are run separately
