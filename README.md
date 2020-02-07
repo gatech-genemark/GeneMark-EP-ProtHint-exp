@@ -18,7 +18,7 @@ All experiments in this folder were run with GeneMark-ES/EP/ET version `5.57_lic
 `v2.3.0`. To reproduce the experiments, install these versions of the programs into
 `bin/gmes` and `bin/ProtHint` folders.
 
-Version of DIAMOND and Spaln within ProtHint were `0.9.24` and `2.3.3d`, respectively.
+Versions of DIAMOND and Spaln within ProtHint were `0.9.24` and `2.3.3d`, respectively.
 
 * GeneMark suite is available at: http://topaz.gatech.edu/GeneMark/license_download.cgi
 * ProtHint is available at: https://github.com/gatech-genemark/ProtHint/releases
@@ -30,6 +30,8 @@ To run the entire GeneMark-EP+ pipeline with a single command, use:
     cd full_run_example
     ../bin/gmes/gmes_petap.pl --seq ../Drosophila_melanogaster/data/genome.fasta.masked \
         --EP --dbep ../Drosophila_melanogaster/data/family_excluded.fa --verbose --cores=16
+        
+Follow the instructions in `Drosophila_melanogaster/data` folder to prepare genome and protein data.
 
 If the matching version of GeneMark-EP+ was used, the result should match the result
 stored in `full_run_example/expected_genemark.gtf`. You can verify the match with:
@@ -37,10 +39,8 @@ stored in `full_run_example/expected_genemark.gtf`. You can verify the match wit
     ./bin/compare_intervals_exact.pl --f1 full_run_example/expected_genemark.gtf --f2 \
         full_run_example/genemark.gtf --verbose
 
-The percentage of unique CDS in either of the resuls should be < 0.05%. Minor fluctuations are
+The percentage of unique CDS in either of the results should be < 0.05%. Minor fluctuations are
 possible, depending on the hardware.
-
-Follow the instructions in `Drosophila_melanogaster/data` folder to prepare genome and protein data.
 
 The example uses D. melanogaster with proteins from species outside of the same
 taxonomical family.
