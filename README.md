@@ -32,7 +32,13 @@ To run the entire GeneMark-EP+ pipeline with a single command, use:
         --EP --dbep ../Drosophila_melanogaster/data/family_excluded.fa --verbose --cores=16
 
 If the matching version of GeneMark-EP+ was used, the result should match the result
-stored in `full_run_example/expected_genemark.gtf`. 
+stored in `full_run_example/expected_genemark.gtf`. You can verify the match with:
+
+    ./bin/compare_intervals_exact.pl --f1 full_run_example/expected_genemark.gtf --f2 \
+        full_run_example/genemark.gtf --verbose
+
+The percentage of unique CDS in either of the resuls should be < 0.05%. Minor fluctuations are
+possible, depending on the hardware.
 
 Follow the instructions in `Drosophila_melanogaster/data` folder to prepare genome and protein data.
 
