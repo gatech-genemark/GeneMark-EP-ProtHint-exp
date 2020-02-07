@@ -39,10 +39,10 @@ stored in `full_run_example/expected_genemark.gtf`. You can verify the match wit
     ./bin/compare_intervals_exact.pl --f1 full_run_example/expected_genemark.gtf --f2 \
         full_run_example/genemark.gtf --verbose
 
-The percentage of unique CDS in either of the results should be < 0.05%. Minor fluctuations are
+The percentage of unique CDS in either of the results should be > 0.05%. Minor fluctuations are
 possible, depending on the hardware.
 
-The example uses D. melanogaster with proteins from species outside of the same
+The example uses _D. melanogaster_ with proteins from species outside of the same
 taxonomical family.
 
 In the rest of the experiments, GeneMark-ES, ProtHint, and GeneMark-EP+ are run separately
