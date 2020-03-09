@@ -50,6 +50,12 @@ Generate start filtering table
 ../bin/create_start_filtering_table.sh genus_excluded > accuracy_tables/start_filtering.tsv
 ```
 
+To get a list of annotated genes which have at least a single hint in the hints file, use
+
+```bash
+../bin/get_hint_genes.sh ${level}_excluded/prothint.gff annot/annot.gtf genes_with_hints
+```
+
 ### GeneMark-EP/EP+
 
 Run GeneMark-EP/EP+ for all levels

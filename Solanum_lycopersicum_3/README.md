@@ -11,20 +11,8 @@ Run GeneMark-ES
 
 ```bash
 cd ES
-../../bin/gmes/gmes_petap.pl --verbose --seq \
-    ../data/genome.fasta.masked --cores=8 --soft_mask auto --ES > log
-cd ..
-```
-
-### GeneMark-ET
-
-Run GeneMark-ET to compare protein results against RNA-Seq. RNA-Seq was sampled
-and aligned by VARUS, see the `varus` folder for details.
-
-```bash
-mkdir ET; cd ET
-../../bin/gmes/gmes_petap.pl --verbose  --seq ../data/genome.fasta.masked \
-    --cores=8 --soft_mask auto --ET ../varus/varus.gff > log
+../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq \
+    ../data/genome.fasta.masked --max_intergenic 50000 --cores=8 --soft_mask 50 --ES > log
 cd ..
 ```
 
@@ -35,7 +23,8 @@ prepare protein data.
 
 ```bash
 ls data | grep "\.fa$" | sed "s/\.fa//" | xargs -I{} bash -c '../bin/ProtHint/bin/prothint.py \
-    data/genome.fasta.masked data/{}.fa --geneMarkGtf ES/genemark.gtf --workdir {} 2> logs/{}_log'
+    data/genome.fasta.masked data/{}.fa --geneMarkGtf ES/genemark.gtf --workdir {} \
+    --maxProteinsPerSeed 25 2> logs/{}_log'
 ```
 
 Make ProtHint accuracy table
@@ -50,18 +39,12 @@ Generate start filtering table
 ../bin/create_start_filtering_table.sh genus_excluded > accuracy_tables/start_filtering.tsv
 ```
 
-To get a list of annotated genes which have at least a single hint in the hints file, use
-
-```bash
-../bin/get_hint_genes.sh ${level}_excluded/prothint.gff annot/annot.gtf genes_with_hints
-```
-
 ### GeneMark-EP/EP+
 
 Run GeneMark-EP/EP+ for all levels
 
 ```bash
-../bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
+bin/EP_batch.sh genus_excluded order_excluded phylum_excluded
 ```
 
 Make GeneMark-ES/EP/EP+ accuracy table
@@ -73,7 +56,7 @@ Make GeneMark-ES/EP/EP+ accuracy table
 Visualize EP+ results
 
 ```bash
-../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 40 70 60 90
+../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization cds 40 70 50 80
 ../bin/visualize_EP+_results.sh annot/annot.gtf EP+_results_visualization gene 0 40 0 40
 ```
 
@@ -97,7 +80,7 @@ Run prediction step of GeneMark-EP+ with introns filtered by different IBA thres
 The results of this experiment are visualized in folder `X_excluded/EP/intron_plus_thresholds/visualization`
 
 ```bash
-../bin/test_intron_thresholds.sh genus_excluded order_excluded phylum_excluded
+bin/test_intron_thresholds.sh genus_excluded order_excluded phylum_excluded
 ```
 
 Visualize the Sn-Sp of EP+ results
@@ -134,15 +117,15 @@ cd genus_excluded/EP
 # Introns only
 mkdir plus_introns_only; cd plus_introns_only
 grep Intron ../../evidence.gff > evidence.gff
-../../../../bin/gmes/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
-    --cores=8 --soft_mask auto --EP ../../prothint.gff --evidence evidence.gff > log
+../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
+    --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 50 --EP ../../prothint.gff --evidence evidence.gff > log
 cd ..
 
 # Starts/stops only
 mkdir plus_starts_stops_only; cd plus_starts_stops_only
 grep -P "start_codon|stop_codon" ../../evidence.gff > evidence.gff
-../../../../bin/gmes/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
-    --cores=8 --soft_mask auto --EP ../../prothint.gff --evidence evidence.gff > log
+../../../../bin/ProtHint/dependencies/GeneMarkES/bin/gmes_petap.pl --verbose --seq ../../../data/genome.fasta.masked \
+    --max_intergenic 50000 --ep_score 4,0.25 --cores=8 --soft_mask 50 --EP ../../prothint.gff --evidence evidence.gff > log
 cd ../../..
 ```
 
@@ -155,6 +138,6 @@ hints sets.
 
 Accuracy table for EP+ with different hints sets.
 
-```bash
+```
 ../bin/create_plus_evidence_comparison_table.sh genus_excluded > accuracy_tables/ep+_evidence_comparison.tsv
 ```
